@@ -1,86 +1,74 @@
 # Sprint 3 IT Academy | Video management tool
 
-## Introduction
+## Introducción
 
-A company in the audiovisual sector has asked us for a web application that will allow their employees to quickly find movies from a large database they have, since the process is currently done manually.
-
-You will be in charge of setting up the core of the application: all the logic of filtering and sorting of movies. You have 2 weeks to finish, which is how long this sprint lasts.
+Esta aplicación contiene toda la lógica para filtrar y ordenar películas, usando tests Jest para checkear su correcto funcionamiento.
 
 <br>
 
-## Requirements
+## Requisitos
 
+1. Clonar el repo
 
-1. Clone this repo
 ```bash
 $ git clone https://github.com/IT-Academy-BCN/starter-code-frontend-sprint-3-movies
 ```
 
-2. Unlink your repo from the itacademy repository
+2. Desconectar repo del original
+
 ```bash
 $ git remote rm origin
 ```
 
-3. Link your repo to the repository you have to create in your github account
+3. Conectar el repo a un repositorio propio
+
 ```bash
 $ git remote add origin <your repo name!>
 ```
 
 <br>
 
-## Submission
-
-1. Upon completion, run the following commands:
-
-```bash
-$ git add .
-$ git commit -m "Sprint Solution"
-$ git push origin master
-```
-
-2. Create Pull Request.
-
-3. Upload the link to the virtual campus so that your mentor can correct it and give you feedback.
-
-
-
-<br>
-
-## Introduction
-
-The statement of the exercise is available on the virtual campus.
-
-<br>
-
 ## Tests!
-
 
 ```shell
 $ npm install
 $ npm run test:watch
 ```
 
-And last, open the generated `test-results.html` file with the "Live Server" VSCode extension to see test results.
+Los resultados se pueden ver en el archivo `test-results.html` generado por Jest en el Live Server the VSCode.
 
-Apart from the statement, you will know exactly what you are asked to do by looking at the file `tests/films.spec.js`, all tests are already defined here!
+Los tests están en el archivo `tests/films.spec.js`.
 
 <br>
 
-## Instructions
+## Ejercicios
 
-You have the following indications from the frontend responsible:
+- Ejercicio 1
 
-- It is mandatory to implement all loops in ES6 (using map, reduce, filter and sort to manipulate arrays).
+La función utiliza el método map para crear un nuevo array con los nombres de los directores.
 
-- As at the moment we don't consume data from a server using an API, we will work with data from the src/data.js archive. For the moment we will implement the logic using
-an array of information about 250 movies.
+- Ejercicio 2
 
-- The implementation is about processing this array of movies, to display it as requested in each exercise.
+La función utiliza el método map para filtrar todas las películas de un director en particular pasado como parámetro a la función.
 
-- The logic to implement will be placed in the src/films.js file.
+- Ejercicio 3
 
-- You don't need to show the result of each function on the screen. Your goal is to pass the tests.  More information on how to program oriented to pass tests at the end of the document.
+La función filtra las películas de un director en particular y luego utiliza map para crear un nuevo array de la puntuación de la película. Finalmente se utiliza reduce para encontrar el promedio de puntuación
 
-- Don't forget to include the capture of the test results in the virtual campus.
+- Ejercicio 4
 
+La función utiliza un map para crear un nuevo array con los títulos de las peliculas y luego sort para ordenar alfabéticamente. Se utiliza splice para encontrar los primeros 20 resultados en caso de que haya más que 20.
 
+- Ejercicio 5
+  La función utiliza sort para ordenar por año ascendentemente. Hay un operador ternario en caso de que la películas con mismo año sean ordenadas alfabeticamente por el título usando localeCompare.
+
+- Ejercicio 6
+
+La función calcula el promedio de puntuación de las películas de un género en particular. Primero se utiliza un filter para encontrar las películas que incluyan el parámetro de género. Si no hay películas con ese género la función devuelve 0. Si hay películas se utiliza reduce para sumar todas las puntuaciónes y luego se devuelve el promedio.
+
+- Ejercicio 7
+
+La función utiliza map para devolver la duración de cada película en minutos (a diferencia del formato Xh Xmin)y calcula el total utilizando parseInt para encontrar sólo el número (por ej "1h" es 1 y "33min" es 33). En caso de que la película no tenga minutos se calculan los minutos en función de la cantidad de horas. La función devuelve un nuevo array con los mismos datos de la película pero con la duración modificada.
+
+- Ejercicio 8
+  La función recibe el array y un año y luego utiliza filter para encontrar las películas de ese año y luego las ordena por su resultado de mayor a menor. Luego devolvemos el primer resultado con index 0, que sería la mejor película.
